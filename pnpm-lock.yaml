@@ -73,6 +73,9 @@ devDependencies:
   svelte:
     specifier: ^5.0.0-next.1
     version: 5.0.0-next.90
+  svelte-adapter-azure-swa:
+    specifier: ^0.20.0
+    version: 0.20.0(@sveltejs/kit@2.5.5)
   svelte-check:
     specifier: ^3.6.0
     version: 3.6.8(postcss@8.4.38)(svelte@5.0.0-next.90)
@@ -3109,6 +3112,16 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       has-flag: 4.0.0
+    dev: true
+
+  /svelte-adapter-azure-swa@0.20.0(@sveltejs/kit@2.5.5):
+    resolution: {integrity: sha512-ZGVXhd42aIAVrTpPjsSC7VmLWiU/DPdILvZosCQiSKj1ZnvHXQMZWcw+DQ3oyzmSsTg7I4Mj4LKkXnOJ8C7Ilg==}
+    peerDependencies:
+      '@sveltejs/kit': ^2.0.0
+    dependencies:
+      '@sveltejs/kit': 2.5.5(@sveltejs/vite-plugin-svelte@3.0.2)(svelte@5.0.0-next.90)(vite@5.2.7)
+      esbuild: 0.19.12
+      set-cookie-parser: 2.6.0
     dev: true
 
   /svelte-check@3.6.8(postcss@8.4.38)(svelte@5.0.0-next.90):

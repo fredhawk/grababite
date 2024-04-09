@@ -1,6 +1,9 @@
 {
 	"name": "grababite",
 	"version": "0.0.1",
+    "engines": {
+        "node": ">=18.13 <19"
+    },
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",

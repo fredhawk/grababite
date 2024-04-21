@@ -1,6 +1,6 @@
-import { relations } from 'drizzle-orm';
+import { relations, sql } from 'drizzle-orm';
 import { boolean, integer, pgTable, smallint, text, timestamp, varchar } from 'drizzle-orm/pg-core';
-// import { generateId } from 'lucia';
+import { generateId } from 'lucia';
 
 const timestamps = {
 	createdAt: timestamp('created_at', {
@@ -17,35 +17,32 @@ const timestamps = {
 		.defaultNow()
 };
 
-export const UsersTest = pgTable('usersTest', {
-	id: text('id').primaryKey(),
-	name: text('name'),
-	attack: smallint('attack'),
+export const user = pgTable('user', {
+	id: text('id')
+		.notNull()
+		.primaryKey()
+		.$defaultFn(() => generateId(15)),
+	// github_id: integer('github_id').unique(),
+	hashed_password: text('hashed_password').notNull(),
+	username: text('username').unique().notNull(),
 	...timestamps
 });
-
-// export const users = pgTable('users', {
-// 	id: text('id').primaryKey(),
-// 	github_id: integer('github_id').unique(),
-// 	username: text('username'),
-// 	...timestamps
-// });
 //
 // export const usersRelations = relations(users, ({ one, many }) => ({
 // 	recipes: many(recipes),
 // 	profile: one(profiles)
 // }));
 //
-// export const sessions = pgTable('sessions', {
-// 	id: text('id').primaryKey(),
-// 	userId: text('user_id')
-// 		.notNull()
-// 		.references(() => users.id),
-// 	expiresAt: timestamp('expires_at', {
-// 		withTimezone: true,
-// 		mode: 'date'
-// 	}).notNull()
-// });
+export const session = pgTable('session', {
+	id: text('id').primaryKey(),
+	userId: text('user_id')
+		.notNull()
+		.references(() => user.id),
+	expiresAt: timestamp('expires_at', {
+		withTimezone: true,
+		mode: 'date'
+	}).notNull()
+});
 //
 // export const profiles = pgTable('profiles', {
 // 	id: text('id')

@@ -5,11 +5,11 @@ import { expand } from 'dotenv-expand';
 expand(config({ path: '.env' }));
 
 export default {
-	driver: 'pg',
+	dialect: 'postgresql',
 	schema: './src/lib/server/schema/schema.ts',
 	out: './src/lib/server/migrations',
 	dbCredentials: {
-		connectionString: process.env.DATABASE_URL! as string
+		url: process.env.DATABASE_URL! as string
 	},
 	schemaFilter: 'public'
 } satisfies Config;

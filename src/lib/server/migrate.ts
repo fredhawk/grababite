@@ -4,7 +4,7 @@ import { drizzle } from 'drizzle-orm/postgres-js';
 
 import config from '../../../drizzle.config';
 
-const client = postgres(config.dbCredentials.connectionString, { max: 1 });
+const client = postgres(config.dbCredentials.url, { max: 1 });
 const db = drizzle(client);
 
 await migrate(db, { migrationsFolder: config.out });

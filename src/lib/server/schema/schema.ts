@@ -24,6 +24,7 @@ export const user = pgTable('user', {
 		.$defaultFn(() => generateId(15)),
 	hashed_password: text('hashed_password').notNull(),
 	username: text('username').unique().notNull(),
+	role: text('role').notNull().default('user'),
 	...timestamps
 });
 

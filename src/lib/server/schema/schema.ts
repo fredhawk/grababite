@@ -23,7 +23,7 @@ export const user = pgTable('user', {
 		.primaryKey()
 		.$defaultFn(() => generateId(15)),
 	hashed_password: text('hashed_password').notNull(),
-	username: text('username').unique().notNull(),
+	email: text('email').unique().notNull(),
 	role: text('role').notNull().default('user'),
 	...timestamps
 });

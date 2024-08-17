@@ -3,7 +3,8 @@ alias b := build
 alias t := test-all
 alias gen := generate
 alias mig := migrate
-alias ddb := docker-db
+alias dbu := docker-db-up
+alias dbd := docker-db-down
 
 # Run dev environment
 dev:
@@ -31,16 +32,24 @@ test-int:
 
 # Generate a database migration
 generate:
-    pnpm drizzle-kit generate:pg
+    pnpm drizzle-kit generate
+
+# Run database up
+data-up:
+    pnpm drizzle-kit up
 
 # Run database migrations
 migrate:
-    pnpm run db:migrate
+    pnpm drizzle-kit migrate
 
 # Seed the database
 seed:
     pnpm run db:seed
 
 # Run docker compose to start up database in docker
-docker-db:
+docker-db-up:
     docker compose up -d
+
+# Run docker compose to start up database in docker
+docker-db-down:
+    docker compose down

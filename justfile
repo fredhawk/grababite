@@ -53,3 +53,19 @@ docker-db-up:
 # Run docker compose to start up database in docker
 docker-db-down:
     docker compose down
+
+# Reset db
+db-reset: docker-db-down
+    echo 'Reseting database'
+    sudo rm -rf db-data
+    echo 'Starting up clean database'
+    just dbu
+    sleep 2
+    echo 'Migrating schema'
+    just mig
+    echo 'Seeding database'
+    just seed
+
+# Start Drizzlekit Studio
+studio:
+    pnpm drizzle-kit studio

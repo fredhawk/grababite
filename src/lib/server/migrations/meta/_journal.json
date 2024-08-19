@@ -92,6 +92,13 @@
       "when": 1723366082983,
       "tag": "0012_equal_scalphunter",
       "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1724086147487,
+      "tag": "0013_open_cargill",
+      "breakpoints": true
     }
   ]
 }

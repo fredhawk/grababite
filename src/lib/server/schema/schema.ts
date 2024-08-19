@@ -25,6 +25,7 @@ export const user = pgTable('user', {
 	hashed_password: text('hashed_password').notNull(),
 	email: text('email').unique().notNull(),
 	role: text('role').notNull().default('user'),
+	banned: boolean('banned').default(false),
 	...timestamps
 });
 

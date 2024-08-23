@@ -21,6 +21,7 @@
 		"drizzle:studio": "pnpm drizzle-kit studio"
 	},
 	"devDependencies": {
+		"@faker-js/faker": "^8.4.1",
 		"@fontsource/fira-mono": "^4.5.10",
 		"@neoconfetti/svelte": "^1.0.0",
 		"@playwright/test": "^1.45.3",
